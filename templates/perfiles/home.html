@@ -1,0 +1,19 @@
+
+<div class="container">
+    {% if user.is_authenticated %}
+        <h2>Bienvenido, {{ user.username }}!</h2>
+        <div> 
+            <a class="nav-link" href="{% url 'salario' %}">Salario promedio por profesión</a>
+        </div>
+        <a href="{% url 'logout' %}" class="logout-btn">Log Out</a>
+    {% else %}
+        <nav>
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+            <a href="{% url 'register' %}" class="nav-link">Register</a>
+            <a href="{% url 'login' %}" class="nav-link">Log In</a>
+        </nav>
+    {% endif %}
+</div>
+
+</body>
+</html>

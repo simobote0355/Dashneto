@@ -1,0 +1,17 @@
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+      <div class="form-group">
+          <input type="text" name="username" class="form-control" placeholder="Usuario" required>
+          <!-- <box-icon name='envelope'></box-icon> -->
+      </div>
+      <div class="form-group">
+          <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+          
+      </div>
+      <input type="submit" value="Inicia Sesion" class="btn btn-success btn-block mb-2">
+      <div class="extra-login clearfix">
+          <span><p>No tienes cuenta? <a href="{% url 'register' %}" class="thembo"> Registrate aqui</a></p></span>
+      </div>
+      <div class="clearfix"></div>
+  
+  </form>
