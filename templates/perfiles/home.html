@@ -1,5 +1,6 @@
-
-<div class="container">
+{% extends 'base.html' %}
+{% load static %}
+{% comment %} <div class="container">
     {% if user.is_authenticated %}
         <h2>Bienvenido, {{ user.username }}!</h2>
         <div> 
@@ -13,7 +14,56 @@
             <a href="{% url 'login' %}" class="nav-link">Log In</a>
         </nav>
     {% endif %}
+</div> {% endcomment %}
+{% block content %}
+
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 p-0" href="">
+        <img src="{% static '/img/logo.png' %}" alt="logo sin bg" style="max-height: 48px;" class="ml-5">
+    </a>
+
+    <ul class="navbar-nav px-3" style="display: flex; flex-direction: row; align-items: center;">
+        {% if user.is_authenticated %}
+            <li class="nav-item text-nowrap">
+                <span class="nav-link" href="">
+                    ({{ user.username }})
+                </span>
+            </li>
+            <li class="nav-item text-nowrap mt-3 ml-2">
+                <form action="{% url 'logout' %}" method="POST">
+                    {% csrf_token %}
+                    <input class="text text-capitalize" type="submit" value="Sign out" />
+                </form>
+            </li>
+        {% else %}
+            <li class="nav-item text-nowrap ml-2">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item text-nowrap ml-2">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+            <li class="nav-item text-nowrap ml-2">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        {% include 'partials/_sidebar.html' %}
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-1">
+            <!-- Contenido principal de la página -->
+            <h2>Aquí iría la gráfica conectada con Power BI. Mientras tanto, una foto:</h2>
+            <div class="d-flex justify-content-center align-items-center vh-100">
+                <!-- La clase 'vh-100' asegura que la imagen ocupe el 100% de la altura de la ventana -->
+                <img src="https://www.geckoboard.com/uploads/Google-analytics4-dashboard.png" class="img-fluid" alt="Foto">
+            </div>
+        </main>
+    </div>
 </div>
 
-</body>
-</html>
+
+
+{% endblock %}

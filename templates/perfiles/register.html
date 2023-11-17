@@ -1,39 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
 
-<form action="{% url 'register' %}" method="POST">
-    {% csrf_token %}
-    <div class="form-group">              
-        <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
-    </div>
-            
-    <div class="form-group">
-        <input type="text" name="apellido" class="form-control" placeholder="Apellido" required>
-    </div>
-            
-    <div class="form-group ">
-        <input type="email" name="email" class="form-control" placeholder="Correo" required>    
-    </div>
-
-    <div class="form-group ">
-        <input type="text" name="usuario" class="form-control" placeholder="Usuario" required>    
-    </div>
-            
-    <div class="form-group">
-        <input type="password" name="contraseña" class="form-control" placeholder="Contraseña" required>
-    </div>
-            
-    <div class="form-group">
-        <input type="text" name="universidad" class="form-control" placeholder="universidad" required>
-    </div>
-            
-    <div class="form-group">
-        <select class="form-control" name="tipo" id="lang">
-            <option value="aspirante">Aspirante</option>
-            <option value="directivo">Directivo</option>
-        </select>
-    </div>   
-    
-    <input type="submit" value="Registrate" class="btn btn-success btn-block mb-2">
-        <div class="form-group mb-0 clearfix">
-            <span><p>Ya eres miembro? <a href="{% url 'login' %}" class="thembo"> Inicia sesion aqui</a></p></span>
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card bg-light text-dark">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Regístrate</h5>
+                    <form action="{% url 'register' %}" method="POST" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingresa tu nombre" required>
+                            <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingresa tu apellido" required>
+                            <div class="invalid-feedback">Por favor, ingresa tu apellido.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Ingresa tu correo" required>
+                            <div class="invalid-feedback">Por favor, ingresa un correo válido.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="usuario">Usuario</label>
+                            <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingresa tu usuario" required>
+                            <div class="invalid-feedback">Por favor, ingresa un nombre de usuario.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contraseña">Contraseña</label>
+                            <input type="password" name="contraseña" id="contraseña" class="form-control" placeholder="Ingresa tu contraseña" required>
+                            <div class="invalid-feedback">Por favor, ingresa una contraseña.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="universidad">Universidad</label>
+                            <input type="text" name="universidad" id="universidad" class="form-control" placeholder="Ingresa tu universidad" required>
+                            <div class="invalid-feedback">Por favor, ingresa tu universidad.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo">Tipo de usuario</label>
+                            <select class="form-control" name="tipo" id="tipo">
+                                <option value="aspirante">Aspirante</option>
+                                <option value="directivo">Directivo</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-secondary btn-block mb-2">Regístrate</button>
+                        <div class="form-group mb-0 clearfix">
+                            <p>¿Ya eres miembro? <a href="{% url 'login' %}" class="thembo">Inicia sesión aquí</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-</form>
+    </div>
+</div>
+
+
+{% endblock %}
