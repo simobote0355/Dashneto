@@ -18,8 +18,8 @@
 {% block content %}
 
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 p-0" href="">
-        <img src="{% static '/img/logo.png' %}" alt="logo sin bg" style="max-height: 48px;" class="ml-5">
+    <a class="navbar-brand col-sm-3 col-md-2 p-1" href="">
+        <img src="{% static '/img/logo.png' %}" alt="logo sin bg" class="img-fluid d-block">
     </a>
 
     <ul class="navbar-nav px-3" style="display: flex; flex-direction: row; align-items: center;">
@@ -37,7 +37,7 @@
             </li>
         {% else %}
             <li class="nav-item text-nowrap ml-2">
-                <a class="nav-link" href="{% url 'home' %}">Home</a>
+                <a class="nav-link" href="{% url 'home' %}">Dashboard</a>
             </li>
             <li class="nav-item text-nowrap ml-2">
                 <a class="nav-link" href="{% url 'register' %}">Register</a>
@@ -59,6 +59,7 @@
             <div class="d-flex justify-content-center align-items-center vh-100">
                 <!-- La clase 'vh-100' asegura que la imagen ocupe el 100% de la altura de la ventana -->
                 <img src="https://www.geckoboard.com/uploads/Google-analytics4-dashboard.png" class="img-fluid" alt="Foto">
+                
             </div>
         </main>
     </div>

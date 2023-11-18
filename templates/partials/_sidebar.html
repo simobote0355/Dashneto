@@ -10,41 +10,80 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">
-          Graficas
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          Graficas 2
+          Informacion General
         </a>
       </li>
     </ul>
 
-    <h6
-      class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
-    >
-      <span>Resumen</span>
-      <a
-        class="d-flex align-items-center text-muted"
-        href="#"
-        aria-label="Add a new report"
-      >
-        <span data-feather="plus-circle"></span>
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>Filtros</span>
+      <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+          <span data-feather="plus-circle"></span>
       </a>
-    </h6>
-    <ul class="nav flex-column mb-2">
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          Resumen 1
-        </a>
+  </h6>
+  
+  <form id="filtroForm" class="mt-2">
+      <ul class="nav flex-column mb-2 ml-3">
+        <li class="nav-item">
+          <div class="">
+              <select class="form-check" id="universidadDropdown" name="universidad" style="border: none;">
+                  <option value="" selected disabled>Universidad</option>
+                  {% for universidad in universidades %}
+                      <option value="{{ universidad.id }}">{{ universidad.nombre }}</option>
+                  {% endfor %}
+              </select>
+          </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span data-feather="file-text"></span>
-          Resumen 2
-        </a>
-      </li>
-    </ul>
+          <li class="nav-item">
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="empleabilidadCheckbox" name="empleabilidad" value="empleabilidad">
+                  <label class="form-check-label" for="empleabilidadCheckbox">
+                      Tasa de empleabilidad
+                  </label>
+              </div>
+          </li>
+          <li class="nav-item">
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="salarialCheckbox" name="salarial" value="salarial">
+                  <label class="form-check-label" for="salarialCheckbox">
+                      Promedio Salarial
+                  </label>
+              </div>
+          </li>
+
+          <li class="nav-item">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="salarialCheckbox" name="salarial" value="salarial">
+                <label class="form-check-label" for="salarialCheckbox">
+                    Genero
+                </label>
+            </div>
+          </li>
+        <li class="nav-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="salarialCheckbox" name="salarial" value="salarial">
+            <label class="form-check-label" for="salarialCheckbox">
+                Sin experiencia
+            </label>
+        </div>
+    </li>
+    <li class="nav-item">
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="salarialCheckbox" name="salarial" value="salarial">
+          <label class="form-check-label" for="salarialCheckbox">
+              Sin estudios
+          </label>
+      </div>
+  </li>
+      </ul>
+  
+      <div class="form-group ml-3">
+          <button class="btn btn-outline-success rounded" type="submit">Buscar</button>
+      </div>
+  </form>
+  
+  
+
 
     <h6
       class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
