@@ -83,5 +83,3 @@ def salario(request):
     plt.title('Promedio Salarial por Profesión')
     plt.show()
     return redirect('home')
-
-
